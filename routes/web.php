@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,79 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // SQL
+    // SELECT
+    // $users = DB::select(
+    //     'SELECT * 
+    //     FROM `users`'
+    // );
+
+    // CREATE
+    // $insert = DB::insert(
+    //     'INSERT INTO `users` 
+    //     (name, email, password)
+    //     VALUES (:name, :email, :password)',
+    //     [
+    //         'name' => 'John Doe',
+    //         'email' => 'john.doe@example.com',
+    //         'password' => 'johndoepassword'
+    //     ]
+    // );
+
+    // UPDATE
+    // $update = DB::update(
+    //     'UPDATE `users`
+    //     SET name = :name
+    //     WHERE id = :id',
+    //     [
+    //         'name' => 'Patrick Update',
+    //         'id' => 1
+    //     ]
+    // );
+
+    // DELETE
+    // $delete = DB::delete(
+    //     'DELETE FROM `users` 
+    //     WHERE id = :id',
+    //     [
+    //         'id' => 4
+    //     ]
+    // );
+
+    // Query Builder
+    // Select
+    // $users = DB::table('users')
+    //     ->first();
+    // $users = DB::table('users')
+    //     ->where('id', 1)
+    //     ->pluck('name');
+
+    // Create
+    // $insert = DB::table('users')
+    //     ->insert([
+    //         'name' => 'John Doe',
+    //         'email' => 'john.doe@gmail.com',
+    //         'password' => 'passwordjohndoe'
+    //     ]);
+
+    // Update
+    // $update = DB::table('users')
+    //     ->where('id', 5)
+    //     ->update([
+    //         'name' => 'John Update',
+    //         'email' => 'john.update@gmail.com'
+    //     ]);
+
+    // Delete
+    // $delete = DB::table('users')
+    //     ->where('id', 5)
+    //     ->delete();
+
+    // Eloquent
+
+    // dd($users);
+
+    // return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -28,4 +101,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
