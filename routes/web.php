@@ -88,7 +88,7 @@ Route::get('/', function () {
 
     // dd($users);
 
-    // return view('welcome');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
